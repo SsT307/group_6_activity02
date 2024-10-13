@@ -30,16 +30,6 @@ def get_color(char):
     }
     return color_row.get(char, None)
 
-# Function to draw a square filled with a specified color
-# Takes a color and a turtle as input
-def draw_square(color, turta):
-    turta.fillcolor(color)
-    turta.begin_fill()
-    for _ in range(4):
-        turta.forward(size)
-        turta.right(90)
-    turta.end_fill()
-
 # ----------------------------- color in number and moving ----------------------------- #
 
 # Uses the turtle instance to fill the square
@@ -91,13 +81,13 @@ def draw_grid(turta):
             turta.penup()
             turta.goto(x, y)
             turta.pendown()
-            draw_square(color, turta)
+            draw_color_pixel(color, turta)
 
 # ------------------------------ draw from file ------------------------------ #
 # Function to draw a line of pixels from a string of numbers
 # Function to read and draw shapes from a file
 # Reads lines from a file, processes each line as a string of color codes
-def draw_from_file(turta):
+def draw_shape_from_file(turta):
     # Prompt the user to enter the file name
     file_name = input("Enter the path of the file that you want to read its content: ")
 
@@ -149,7 +139,7 @@ def main():
         turta.penup()
         turta.goto(-(size*10), (size*10))  # Move to top-left of the screen
         turta.pendown()
-        draw_from_file(turta)
+        draw_shape_from_file(turta)
     else:
         print("Invalid choice. Please choose 1, 2 or 3")
     turtle.Screen().exitonclick()
